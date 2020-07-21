@@ -1,5 +1,6 @@
 import React from 'react';
-import AuthContext from '../../contexts/AuthContext';
+
+import { AuthContext } from '../../contexts/AuthContext';
 import querystring from 'querystring';
 
 const dukeOauth = "https://oauth.oit.duke.edu/oauth/authorize.php?";
@@ -15,20 +16,30 @@ class Login extends React.Component {
   static contextType = AuthContext;
 
   componentDidMount() {
+    const { state, dispatch } = this.context;
     const params = querystring.parse(window.location.hash.substring(1));
-    const auth = {
-      isSignedIn: true,
-      token: params.access_token,
-      expires: params.expires_in
-    };
-    if(auth.token) {
-      this.context.onLogin(auth);
+    console.log(params.access_token);
+
+    if(params.access_token) {
+      var expire = new Date();
+      expire.setSeconds(expire.getSeconds() + params.expires_in);
+      const expireTime = Math.floor(expire.getTime() / 1000);
+      console.log(expireTime)
+      dispatch({
+        type: "LOGIN",
+        payload: {
+          isSignedIn: true,
+          accessToken: params.access_token,
+          expiresIn: params.expires_in,
+          expiresDate: expireTime
+        }
+      });
     }
   }
 
   render() {
     return (
-      <div className="App">
+      <div>
         <a href={OAuth_URL}>Duke Login</a>
       </div>
     );

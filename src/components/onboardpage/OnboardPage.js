@@ -1,23 +1,23 @@
 import React from 'react';
-import Login from './Login';
-import AuthContext from '../../contexts/AuthContext';
 import { Link } from 'react-router-dom';
+
+import { AuthContext } from '../../contexts/AuthContext';
+import Login from './Login';
 
 class OnboardPage extends React.Component {
   static contextType = AuthContext;
 
   render() {
-    if(!this.context.isSignedIn) {
+    console.log(this.context.state.isSignedIn);
+    if(!this.context.state.isSignedIn) {
       return (
-        <div className="ui container">
-          <Login />
-        </div>
+        <Login />
       );
     }
     else {
-      console.log(this.context.isSignedIn)
-      return <Link to={'/search'}>go to search</Link>;
-
+      return (
+        <Link to={'/details'}>go to details</Link>
+      )
     };
   };
 };

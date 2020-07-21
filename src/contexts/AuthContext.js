@@ -1,31 +1,62 @@
 import React from 'react';
+import { setAuthentication, clearAuthentication } from '../api/localStorage';
 
-const AuthContext = React.createContext({
-  auth: {
-    isSignedIn: false,
-    token: null,
-    expires: null,
-  }
-});
-
-export class AuthStore extends React.Component {
-  state = { isSignedIn: false, token: null, expires: null }
-
-  onLogin = (auth) => {
-    this.setState(auth);
-  }
-
-  onLogout = () => {
-    this.setState({ isSignedIn: false, token: null, expires: null });
-  }
-
-  render() {
-    return (
-      <AuthContext.Provider value={{ ...this.state, onLogin: this.onLogin, onLogout: this.onLogout }}>
-        {this.props.children}
-      </AuthContext.Provider>
-    );
-  };
+let initialState = {
+  isSignedIn: false,
+  accessToken: null,
+  expiresIn: null,
+  expiresDate: null
 };
 
-export default AuthContext;
+export const AuthContext = React.createContext(initialState);
+
+const authReducer = (state, action) => {
+  console.log(action);
+  const { payload } = action;
+
+  switch (action.type) {
+    case "LOGIN":
+      console.log("AUTH - User login.");
+      setAuthentication(payload);
+      return {
+        ...state,
+        isSignedIn: true,
+        accessToken: payload.accessToken,
+        expiresIn: payload.expiresIn,
+        expiresDate: payload.expiresDate
+      };
+    case "LOGOUT":
+      console.log("AUTH - User logout.");
+      clearAuthentication();
+      return {
+        ...state,
+        isSignedIn: false,
+        accessToken: null,
+        expiresIn: null,
+        expiresDate: null
+      };
+    case "REFRESH":
+      console.log("AUTH - Validate Token");
+      return {
+        ...state,
+        isSignedIn: true,
+        accessToken: payload.accessToken,
+        expiresIn: payload.expiresIn,
+        expiresDate: payload.expiresDate
+      };
+    default:
+      return state;
+  }
+};
+
+export const AuthStore = (props) => {
+  const [state, dispatch] = React.useReducer(authReducer, initialState)
+
+  return (
+    <AuthContext.Provider value={{ state, dispatch }}>
+      {props.children}
+    </AuthContext.Provider>
+  );
+};
+
+export default { AuthContext, AuthStore };
