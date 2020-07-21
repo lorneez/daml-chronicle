@@ -15,9 +15,7 @@ class OnboardPage extends React.Component {
       );
     }
     else {
-      return (
-        <Link to={'/details'}>go to details</Link>
-      )
+      window.location.href = "/search";
     };
   };
 };
