@@ -16,7 +16,7 @@ class Login extends React.Component {
   static contextType = AuthContext;
 
   componentDidMount() {
-    const { state, dispatch } = this.context;
+    const { dispatch } = this.context;
     const params = querystring.parse(window.location.hash.substring(1));
     console.log(params.access_token);
 

@@ -6,7 +6,7 @@ import SearchPage from './components/searchpage/SearchPage';
 import DetailsPage from './components/detailspage/DetailsPage';
 import ProtectedRoute from './routes/ProtectedRoute';
 
-import { AuthStore, AuthContext } from './contexts/AuthContext';
+import { AuthStore } from './contexts/AuthContext';
 
 class App extends React.Component {
   //state = { loading: true };

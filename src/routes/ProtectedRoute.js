@@ -2,7 +2,7 @@ import React from 'react';
 import { Redirect } from 'react-router-dom';
 
 import { AuthContext } from '../contexts/AuthContext';
-import { getAuthentication, validateAuthentication, setAuthentication } from '../api/localStorage';
+import { getAuthentication, validateAuthentication } from '../api/localStorage';
 
 class ProtectedRoute extends React.Component {
   static contextType = AuthContext;
@@ -16,7 +16,7 @@ class ProtectedRoute extends React.Component {
       // Check if the context is empty
       if(this.context.state.accessToken == null) {
         console.log("PROTECTED ROUTE - Refreshing Auth context.");
-        const { state, dispatch } = this.context;
+        const { dispatch } = this.context;
         const auth = getAuthentication();
         dispatch({
           type: "REFRESH",
