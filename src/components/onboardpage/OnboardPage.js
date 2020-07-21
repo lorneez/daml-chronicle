@@ -16,6 +16,7 @@ class OnboardPage extends React.Component {
     }
     else {
       window.location.href = "/search";
+      return<div>loading</div>;
     };
   };
 };
