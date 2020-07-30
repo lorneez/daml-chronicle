@@ -45,7 +45,7 @@ function LoginComponent(props) {
         }
       });
     }
-  },[]);
+  },[auth]);
 
   function renderButton() {
     return (

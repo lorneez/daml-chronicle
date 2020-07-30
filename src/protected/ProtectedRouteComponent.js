@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Redirect } from 'react-router-dom';
 
 import { AuthContext } from '../contexts/AuthContext';
 import { getAuthentication, validateAuthentication, clearAuthentication } from '../api/localStorage';
@@ -48,7 +47,7 @@ function ProtectedRouteComponent(props) {
       setLoadingScreen(false);
       console.log("Loading is: " + loadingScreen);
     }, 1000);
-  }, []);
+  }, [auth, loadingScreen, protectedComponent]);
 
   function renderComponent() {
     if(loadingScreen) {
