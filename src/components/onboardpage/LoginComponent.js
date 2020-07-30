@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 import { AuthContext } from '../../contexts/AuthContext';
 import querystring from 'querystring';
-import Modal from '../../protected/Modal';
+import LoadingComponent from "../LoadingComponent";
 
 const dukeAuth = "https://oauth.oit.duke.edu/oauth/authorize.php?";
 const clientId = "client_id=lorne-zhang";
@@ -18,14 +18,25 @@ const scope = "&scope=basic";
 export const OAuth_URL = dukeAuth + clientId + clientSecret + redirectUri + responseType + state + scope;
 
 // Styled Components
-const Wrapper = styled("div")`
+const Wrapper = styled("div")`s
   display: flex;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
 `;
+
+const Column = styled("div")`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+`;
+
 
 function LoginComponent(props) {
   const auth = useContext(AuthContext);
-
+  const { isSignedIn } = auth;
   useEffect(()=> {
     const { dispatch } = auth;
     const params = querystring.parse(window.location.hash.substring(1));
@@ -47,22 +58,22 @@ function LoginComponent(props) {
     }
   },[auth]);
 
-  function renderButton() {
+  if(isSignedIn) {
+    return <LoadingComponent></LoadingComponent>
+  } else {
     return (
-      <div>
-        <Button type={"primary"} href={OAuth_URL}>Login</Button>
-      </div>
+        <Wrapper>
+          <Column>
+            Duke Login
+            <div>
+              <Button type={"primary"} href={OAuth_URL}>
+                Login
+              </Button>
+            </div>
+          </Column>
+        </Wrapper>
     );
   }
-
-  return (
-      <Wrapper>
-          <Modal
-              buttons={renderButton()}
-              title="Duke Login"
-          />
-      </Wrapper>
-  );
 };
 
 export default LoginComponent;

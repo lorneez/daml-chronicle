@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../contexts/AuthContext';
 import { getAuthentication, validateAuthentication, clearAuthentication } from '../api/localStorage';
 import LoadingComponent from "../components/LoadingComponent";
-import Modal from './Modal';
+import ModalComponent from './ModalComponent';
 import {Button} from "antd";
 import {OAuth_URL} from "../components/onboardpage/LoginComponent";
 
@@ -62,15 +62,18 @@ function ProtectedRouteComponent(props) {
             props.component()
         );
       } else {
-
-        return <Modal
-            buttons={
-              <div>
-                <Button type={"primary"} href={OAuth_URL}>Login</Button>
-              </div>
-            }
-            title="Reauthenticate Login"
-        />;
+        console.log("returning modal")
+        return (
+            <div>
+              {props.component()}
+              <ModalComponent
+                  url={OAuth_URL}
+                  title="Reauthenticate Login"
+                  ok={"Login"}
+                  cancel={"Exit Page"}
+              />
+            </div>
+        );
       };
     };
   }
