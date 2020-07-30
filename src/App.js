@@ -1,31 +1,29 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import OnboardPage from './components/onboardpage/OnboardPage';
-import SearchPage from './components/searchpage/SearchPage';
-import DetailsPage from './components/detailspage/DetailsPage';
-import ProtectedRoute from './routes/ProtectedRoute';
+import OnboardPageComponent from './components/onboardpage/OnboardPageComponent';
+import SearchPageComponent from './components/searchpage/SearchPageComponent';
+import DetailsPageComponent from './components/detailspage/DetailsPageComponent';
+import ProtectedRouteComponent from './protected/ProtectedRouteComponent';
 
 import { AuthStore } from './contexts/AuthContext';
 
-class App extends React.Component {
+function App() {
   //state = { loading: true };
 
   //static contextType = AuthContext;
 
-  render() {
     return (
       <AuthStore>
         <BrowserRouter>
           <Switch>
-            <Route path="/" exact component={OnboardPage} />
-            <ProtectedRoute exact path="/search" component={SearchPage} />
-            <ProtectedRoute exact path="/details" component={DetailsPage} />
+            <Route path="/" exact component={OnboardPageComponent} />
+            <ProtectedRouteComponent exact path="/search" component={SearchPageComponent} test={"test"}/>
+            <ProtectedRouteComponent exact path="/details" component={DetailsPageComponent} />
           </Switch>
         </BrowserRouter>
       </AuthStore>
     );
-  }
 }
 
 export default App;
