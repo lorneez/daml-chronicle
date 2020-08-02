@@ -17,6 +17,7 @@ function ProtectedRouteComponent(props) {
     console.log("PROTECTED ROUTE - Validating authentication.");
     // Check if the token is valid
     const valid = validateAuthentication();
+    console.log("Authentication is " + valid);
     if(valid) {
       console.log("PROTECTED ROUTE - Authentication is still valid.");
       // Check if the context is empty

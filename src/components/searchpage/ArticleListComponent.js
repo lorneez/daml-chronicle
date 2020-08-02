@@ -22,7 +22,7 @@ function ArticleListComponent() {
             <Col>
                 <Row
                     style={{
-                        'justify-content': 'center'
+                        'justifyContent': 'center'
                     }}
                 >
                     {articles &&
@@ -35,14 +35,14 @@ function ArticleListComponent() {
                                 author={author}
                                 date={date}
                                 description={description}
-
+                                key={title}
                             />
                         );
                     })}
                 </Row>
                 <Row
                     style={{
-                        'justify-content': 'center'
+                        'justifyContent': 'center'
                     }}
                 >
                     <Pagination

@@ -45,7 +45,7 @@ function StandardSearchComponent() {
             </SearchElement>
             <SelectContainer>
                 <Col>
-                    <div style={{ 'text-align': 'left' }}>
+                    <div style={{ 'textAlign': 'left' }}>
                         Advanced Options
                     </div>
                     <Row>
