@@ -1,4 +1,4 @@
-import React, {useContext} from 'react'; // useEffect
+import React, {useContext, useEffect} from 'react';
 import { Button } from 'antd';
 import 'antd/dist/antd.css';
 import styled from 'styled-components';
@@ -47,7 +47,7 @@ function LoginComponent(props) {
     return (
         <Wrapper>
           <Column>
-            Duke Login
+            Duke Login (DEVELOPMENT BRANCH)
             <div>
               <Button type={"primary"} href={OAuth_URL}>
                 Login
@@ -55,7 +55,7 @@ function LoginComponent(props) {
             </div>
             <div>
               <Link to={'/search'}>
-                Guest Login (deploy test only)
+                Guest Login (FOR TESTING DEPLOYMENT)
               </Link>
             </div>
           </Column>
