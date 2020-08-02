@@ -6,16 +6,11 @@ import LoadingComponent from "../LoadingComponent";
 
 function OnboardPageComponent(props) {
   const localAuth = getAuthentication();
-  if(true){
+  if(localAuth == null || localAuth.isSignedIn == false) {
       return (
-          <LoginComponent></LoginComponent>
-      )
+          <LoginComponent />
+      );
   }
-  // if(localAuth === null || localAuth.isSignedIn === false) {
-  //     return (
-  //         <LoginComponent />
-  //     );
-  // }
   else {
       window.location.href = "/search";
       return <LoadingComponent></LoadingComponent>;

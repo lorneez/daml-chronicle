@@ -11,8 +11,8 @@ import LoadingComponent from "../LoadingComponent";
 const dukeAuth = "https://oauth.oit.duke.edu/oauth/authorize.php?";
 const clientId = "client_id=lorne-zhang";
 const clientSecret = "&client_secret=aexEetdyPlYlU7kc3QZmCmJf5pyIql1T%KJ!=j!Ik=B+hFF7oX";
-//const redirectUri = "&redirect_uri=http%3A%2F%2Flocalhost%3A3000/login/";
-const redirectUri = "&redirect_uri=https%3A%2F%2Floving-fermi-04148b.netlify.app/login/";
+const redirectUri = "&redirect_uri=http%3A%2F%2Flocalhost%3A3000/login/";
+// const redirectUri = "&redirect_uri=https%3A%2F%2Floving-fermi-04148b.netlify.app/login/";
 const responseType = "&response_type=token";
 const state = "&state=2000";
 const scope = "&scope=basic";
@@ -55,7 +55,7 @@ function LoginComponent(props) {
             </div>
             <div>
               <Link to={'/search'}>
-                Guest Login
+                Guest Login (deploy test only)
               </Link>
             </div>
           </Column>

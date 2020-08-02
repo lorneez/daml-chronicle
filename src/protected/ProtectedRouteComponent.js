@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import 'antd/dist/antd.css';
 
 import { AuthContext } from '../contexts/AuthContext';
-import { getAuthentication, clearAuthentication } from '../api/localStorage'; // validate
+import { getAuthentication, validateAuthentication, clearAuthentication } from '../api/localStorage';
 import LoadingComponent from "../components/LoadingComponent";
 import ModalComponent from './ModalComponent';
 import SideBarComponent from "../components/SideBarComponent";
@@ -16,26 +16,25 @@ function ProtectedRouteComponent(props) {
   useEffect(() => {
     console.log("PROTECTED ROUTE - Validating authentication.");
     // Check if the token is valid
-    // const valid = validateAuthentication();
-    const valid = true;
+    const valid = validateAuthentication();
     if(valid) {
       console.log("PROTECTED ROUTE - Authentication is still valid.");
       // Check if the context is empty
-      // if(auth.state.accessToken == null) {
-      //   console.log("PROTECTED ROUTE - Refreshing Auth context.");
-      //   const { dispatch } = auth;
-      //   const localStorageAuth = getAuthentication();
-      //   const { accessToken, expiresIn, expiresDate } = localStorageAuth;
-      //   dispatch({
-      //     type: "REFRESH",
-      //     payload: {
-      //       isSignedIn: true,
-      //       accessToken: accessToken,
-      //       expiresIn: expiresIn,
-      //       expiresDate: expiresDate
-      //     }
-      //   });
-      // }
+      if(auth.state.accessToken == null) {
+        console.log("PROTECTED ROUTE - Refreshing Auth context.");
+        const { dispatch } = auth;
+        const localStorageAuth = getAuthentication();
+        const { accessToken, expiresIn, expiresDate } = localStorageAuth;
+        dispatch({
+          type: "REFRESH",
+          payload: {
+            isSignedIn: true,
+            accessToken: accessToken,
+            expiresIn: expiresIn,
+            expiresDate: expiresDate
+          }
+        });
+      }
       setProtectedComponent(true);
       console.log("Protected is: " + protectedComponent);
     }
@@ -45,11 +44,11 @@ function ProtectedRouteComponent(props) {
       setProtectedComponent(false);
       console.log("Protected is: " + protectedComponent);
     };
-    setLoadingScreen(false);
-    // setTimeout(() => {
-    //   setLoadingScreen(false);
-    //   console.log("Loading is: " + loadingScreen);
-    // }, 1000);
+    //setLoadingScreen(false);
+    setTimeout(() => {
+      setLoadingScreen(false);
+      console.log("Loading is: " + loadingScreen);
+    }, 1000);
   }, [auth, loadingScreen, protectedComponent]);
 
   function renderComponent() {
