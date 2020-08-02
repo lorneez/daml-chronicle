@@ -1,5 +1,6 @@
 
 export function setAuthentication(auth) {
+  console.log(auth)
   window.localStorage.setItem("accessToken", JSON.stringify(auth.accessToken));
   window.localStorage.setItem("expiresIn", JSON.stringify(auth.expiresIn));
   window.localStorage.setItem("expiresDate", JSON.stringify(auth.expiresDate));

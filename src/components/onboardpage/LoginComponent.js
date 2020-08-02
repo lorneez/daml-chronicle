@@ -1,10 +1,11 @@
-import React, { useContext } from 'react';
+import React, {useContext, useEffect} from 'react';
 import { Button } from 'antd';
 import 'antd/dist/antd.css';
 import styled from 'styled-components';
 
 import { AuthContext } from '../../contexts/AuthContext';
 import LoadingComponent from "../LoadingComponent";
+import querystring from "querystring";
 
 const dukeAuth = "https://oauth.oit.duke.edu/oauth/authorize.php?";
 const clientId = "client_id=lorne-zhang";
@@ -39,6 +40,21 @@ function LoginComponent(props) {
   const { state } = auth;
   const { isSignedIn } = state;
 
+  function guestLogin() {
+    const {dispatch} = auth;
+    let expire = new Date();
+    dispatch({
+      type: "LOGIN",
+      payload: {
+        isSignedIn: true,
+        accessToken: "guest_access",
+        expiresIn: 3601,
+        expiresDate: Math.floor(expire.getTime() / 1000)
+      }
+    });
+    window.location.href = "/search";
+  }
+
   if(isSignedIn) {
     return <LoadingComponent></LoadingComponent>
   } else {
@@ -49,6 +65,11 @@ function LoginComponent(props) {
             <div>
               <Button type={"primary"} href={OAuth_URL}>
                 Login
+              </Button>
+            </div>
+            <div>
+              <Button type={"primary"} onClick={() => guestLogin()}>
+                Guest Login
               </Button>
             </div>
           </Column>

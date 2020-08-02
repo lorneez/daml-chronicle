@@ -17,6 +17,7 @@ const authReducer = (state, action) => {
   switch (action.type) {
     case "LOGIN":
       console.log("AUTH - User login.");
+      console.log(payload);
       setAuthentication(payload);
       return {
         ...state,
