@@ -41,21 +41,6 @@ function LoginComponent(props) {
   const { state } = auth;
   const { isSignedIn } = state;
 
-  function guestLogin() {
-    const {dispatch} = auth;
-    let expire = new Date();
-    dispatch({
-      type: "LOGIN",
-      payload: {
-        isSignedIn: true,
-        accessToken: "guest_access",
-        expiresIn: 3601,
-        expiresDate: Math.floor(expire.getTime() / 1000)
-      }
-    });
-    window.location.href = "/search";
-  }
-
   if(isSignedIn) {
     return <LoadingComponent></LoadingComponent>
   } else {
