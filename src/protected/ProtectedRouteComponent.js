@@ -1,9 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { Layout, Menu, Breadcrumb } from 'antd';
+import 'antd/dist/antd.css';
 
 import { AuthContext } from '../contexts/AuthContext';
 import { getAuthentication, validateAuthentication, clearAuthentication } from '../api/localStorage';
 import LoadingComponent from "../components/LoadingComponent";
 import ModalComponent from './ModalComponent';
+import SideBarComponent from "../components/SideBarComponent";
 import {Button} from "antd";
 import {OAuth_URL} from "../components/onboardpage/LoginComponent";
 
@@ -43,10 +46,11 @@ function ProtectedRouteComponent(props) {
       setProtectedComponent(false);
       console.log("Protected is: " + protectedComponent);
     };
-    setTimeout(() => {
-      setLoadingScreen(false);
-      console.log("Loading is: " + loadingScreen);
-    }, 1000);
+    setLoadingScreen(false);
+    // setTimeout(() => {
+    //   setLoadingScreen(false);
+    //   console.log("Loading is: " + loadingScreen);
+    // }, 1000);
   }, [auth, loadingScreen, protectedComponent]);
 
   function renderComponent() {
@@ -58,11 +62,12 @@ function ProtectedRouteComponent(props) {
     }
     else {
       if (protectedComponent) {
+        console.log("returning component");
         return (
-            props.component()
+            <SideBarComponent component={props.component}></SideBarComponent>
         );
       } else {
-        console.log("returning modal")
+        console.log("returning modal");
         return (
             <div>
               {props.component()}

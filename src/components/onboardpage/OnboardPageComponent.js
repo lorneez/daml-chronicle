@@ -1,14 +1,15 @@
 import React, { useContext } from 'react';
 
+import { getAuthentication } from "../../api/localStorage";
 import { AuthContext } from '../../contexts/AuthContext';
 import LoginComponent from './LoginComponent';
 import LoadingComponent from "../LoadingComponent";
 
 function OnboardPageComponent(props) {
-  const auth = useContext(AuthContext);
-  if(!auth.state.isSignedIn) {
+  const localAuth = getAuthentication();
+  if(localAuth == null || localAuth.isSignedIn == false) {
       return (
-        <LoginComponent />
+          <LoginComponent />
       );
   }
   else {

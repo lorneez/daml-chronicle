@@ -7,6 +7,7 @@ import DetailsPageComponent from './components/detailspage/DetailsPageComponent'
 import ProtectedRouteComponent from './protected/ProtectedRouteComponent';
 
 import { AuthStore } from './contexts/AuthContext';
+import RedirectComponent from "./components/onboardpage/RedirectComponent";
 
 function App() {
   //state = { loading: true };
@@ -18,6 +19,7 @@ function App() {
         <BrowserRouter>
           <Switch>
             <Route path="/" exact component={OnboardPageComponent} />
+            <Route path="/login" exact component={RedirectComponent} />
             <ProtectedRouteComponent exact path="/search" component={SearchPageComponent} test={"test"}/>
             <ProtectedRouteComponent exact path="/details" component={DetailsPageComponent} />
           </Switch>
