@@ -68,7 +68,7 @@ function LoginComponent(props) {
               </Button>
             </div>
             <div>
-              <Button type={"primary"} onClick={() => guestLogin()}>
+              <Button type={"primary"} href={'/search'}>
                 Guest Login
               </Button>
             </div>
