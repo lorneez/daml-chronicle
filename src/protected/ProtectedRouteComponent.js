@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Layout, Menu, Breadcrumb } from 'antd';
 import 'antd/dist/antd.css';
 
 import { AuthContext } from '../contexts/AuthContext';
@@ -7,7 +6,6 @@ import { getAuthentication, validateAuthentication, clearAuthentication } from '
 import LoadingComponent from "../components/LoadingComponent";
 import ModalComponent from './ModalComponent';
 import SideBarComponent from "../components/SideBarComponent";
-import {Button} from "antd";
 import {OAuth_URL} from "../components/onboardpage/LoginComponent";
 
 function ProtectedRouteComponent(props) {

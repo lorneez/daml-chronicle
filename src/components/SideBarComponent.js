@@ -5,13 +5,9 @@ import { Layout, Menu, Breadcrumb, Input } from 'antd';
 import {
     DesktopOutlined,
     PieChartOutlined,
-    FileOutlined,
-    TeamOutlined,
-    UserOutlined,
 } from '@ant-design/icons';
 
 const { Header, Content, Footer, Sider } = Layout;
-const { SubMenu } = Menu;
 const { Search } = Input;
 
 function SideBarComponent(props) {

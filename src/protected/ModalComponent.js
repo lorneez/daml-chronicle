@@ -1,31 +1,10 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import styled from 'styled-components';
 import 'antd/dist/antd.css';
 import { Modal } from 'antd';
 
-// Styled Components
-const Wrapper = styled("div")`s
-  display: flex;
-  height: 100vh;
-  width: 100vw;
-`;
-
-const Column = styled("div")`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  width: 100%;
-  height: 100%;
-`;
-
 function ModalComponent(props) {
     const [visible, setVisible] = useState(true);
-
-    function showModal() {
-        setVisible(true);
-    };
 
     function handleOk(url) {
         setVisible(false);
