@@ -1,11 +1,11 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useContext} from 'react'; // useEffect
 import { Button } from 'antd';
 import 'antd/dist/antd.css';
 import styled from 'styled-components';
 
 import { AuthContext } from '../../contexts/AuthContext';
 import LoadingComponent from "../LoadingComponent";
-import querystring from "querystring";
+// import querystring from "querystring";
 
 const dukeAuth = "https://oauth.oit.duke.edu/oauth/authorize.php?";
 const clientId = "client_id=lorne-zhang";

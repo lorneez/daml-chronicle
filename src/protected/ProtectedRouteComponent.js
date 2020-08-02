@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import 'antd/dist/antd.css';
 
 import { AuthContext } from '../contexts/AuthContext';
-import { getAuthentication, validateAuthentication, clearAuthentication } from '../api/localStorage';
+import { getAuthentication, clearAuthentication } from '../api/localStorage'; // validate
 import LoadingComponent from "../components/LoadingComponent";
 import ModalComponent from './ModalComponent';
 import SideBarComponent from "../components/SideBarComponent";
