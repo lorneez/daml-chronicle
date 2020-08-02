@@ -2,6 +2,7 @@ import React, {useContext} from 'react'; // useEffect
 import { Button } from 'antd';
 import 'antd/dist/antd.css';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 import { AuthContext } from '../../contexts/AuthContext';
 import LoadingComponent from "../LoadingComponent";
@@ -68,9 +69,9 @@ function LoginComponent(props) {
               </Button>
             </div>
             <div>
-              <Button type={"primary"} href={'/search'}>
+              <Link to={'/search'}>
                 Guest Login
-              </Button>
+              </Link>
             </div>
           </Column>
         </Wrapper>

@@ -21,21 +21,21 @@ function ProtectedRouteComponent(props) {
     if(valid) {
       console.log("PROTECTED ROUTE - Authentication is still valid.");
       // Check if the context is empty
-      if(auth.state.accessToken == null) {
-        console.log("PROTECTED ROUTE - Refreshing Auth context.");
-        const { dispatch } = auth;
-        const localStorageAuth = getAuthentication();
-        const { accessToken, expiresIn, expiresDate } = localStorageAuth;
-        dispatch({
-          type: "REFRESH",
-          payload: {
-            isSignedIn: true,
-            accessToken: accessToken,
-            expiresIn: expiresIn,
-            expiresDate: expiresDate
-          }
-        });
-      }
+      // if(auth.state.accessToken == null) {
+      //   console.log("PROTECTED ROUTE - Refreshing Auth context.");
+      //   const { dispatch } = auth;
+      //   const localStorageAuth = getAuthentication();
+      //   const { accessToken, expiresIn, expiresDate } = localStorageAuth;
+      //   dispatch({
+      //     type: "REFRESH",
+      //     payload: {
+      //       isSignedIn: true,
+      //       accessToken: accessToken,
+      //       expiresIn: expiresIn,
+      //       expiresDate: expiresDate
+      //     }
+      //   });
+      // }
       setProtectedComponent(true);
       console.log("Protected is: " + protectedComponent);
     }
