@@ -12,7 +12,7 @@ const { Search } = Input;
 
 function SideBarComponent(props) {
     const [collapsed, setCollapsed] = useState(true);
-    
+
     return (
         <Layout style={{ minHeight: '100vh' }}>
             <Sider theme="dark" collapsible collapsed={collapsed} onCollapse={() => setCollapsed(!collapsed)}>
