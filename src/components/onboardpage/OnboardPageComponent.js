@@ -6,7 +6,7 @@ import LoadingComponent from "../LoadingComponent";
 
 function OnboardPageComponent(props) {
   const localAuth = getAuthentication();
-  if(localAuth === null || localAuth.isSignedIn == false) {
+  if(localAuth === null || localAuth.isSignedIn === false) {
       return (
           <LoginComponent />
       );

@@ -2,7 +2,7 @@ import React  from 'react';
 import styled from "styled-components";
 import 'antd/dist/antd.css';
 import '../../index.css';
-import { Input, Select} from 'antd';
+import { Input} from 'antd';
 import ArticleListComponent from "./ArticleListComponent";
 
 const { Search } = Input;

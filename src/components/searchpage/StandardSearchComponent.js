@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from "styled-components";
 import 'antd/dist/antd.css';
 import '../../index.css';
-import { Input, Col, Row, Select, InputNumber, DatePicker, AutoComplete, Cascader, Radio, Form, Pagination } from 'antd';
+import { Input, Col, Row, Select, DatePicker, Radio, Form } from 'antd';
 import ArticleListComponent from "./ArticleListComponent";
 
 const { Option } = Select;
@@ -33,7 +33,6 @@ const SearchElement = styled('div')`
 
 function StandardSearchComponent() {
     const [searchOrder, setSearchOrder] = useState('date');
-    const [searchType, setSearchType] = useState('standard');
 
     return (
         <Wrapper>
