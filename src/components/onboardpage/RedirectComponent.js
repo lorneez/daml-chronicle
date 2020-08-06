@@ -13,7 +13,8 @@ function RedirectComponent() {
         const { dispatch } = auth;
         const params = querystring.parse(window.location.hash.substring(1));
         const { access_token, expires_in } = params;
-        const testExpires = 15;
+        const testExpires = 300;
+        console.log(params);
         if (access_token) {
             let expire = new Date();
             expire.setSeconds(expire.getSeconds() + testExpires);
@@ -28,9 +29,9 @@ function RedirectComponent() {
                 }
             });
         }
-    });
+    }, []);
 
-    if(!isSignedIn) {
+    if(isSignedIn) {
         window.location.href = "/search";
     }
     return <LoadingComponent></LoadingComponent>;

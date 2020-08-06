@@ -1,5 +1,6 @@
 import React, {useContext, useEffect} from 'react';
-import { Button } from 'antd';
+import { Button, Avatar } from 'antd';
+import { UserOutlined } from '@ant-design/icons';
 import 'antd/dist/antd.css';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
@@ -7,6 +8,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext';
 import LoadingComponent from "../LoadingComponent";
 // import querystring from "querystring";
+// import chronicleLogo from '../../data/chronicle.png';
 
 const dukeAuth = "https://oauth.oit.duke.edu/oauth/authorize.php?";
 const clientId = "client_id=lorne-zhang";
@@ -47,7 +49,15 @@ function LoginComponent(props) {
     return (
         <Wrapper>
           <Column>
-            Duke Login (DEVELOPMENT BRANCH)
+            <div style={{
+              'textAlign': 'center',
+              'padding' : '10px'
+            }}>
+              <Avatar
+                  size={100}
+                  icon={<UserOutlined />}
+              />
+            </div>
             <div>
               <Button type={"primary"} href={OAuth_URL}>
                 Login

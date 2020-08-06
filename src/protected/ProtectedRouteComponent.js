@@ -69,7 +69,7 @@ function ProtectedRouteComponent(props) {
         console.log("returning modal");
         return (
             <div>
-              {props.component()}
+              <SideBarComponent component={props.component}></SideBarComponent>
               <ModalComponent
                   url={OAuth_URL}
                   title="Reauthenticate Login"

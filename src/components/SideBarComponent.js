@@ -18,17 +18,17 @@ function SideBarComponent(props) {
             <Sider theme="dark" collapsible collapsed={collapsed} onCollapse={() => setCollapsed(!collapsed)}>
                 <div className="logo"></div>
                 <Menu theme="light" defaultSelectedKeys={['1']} mode="inline">
-                    <Search
-                        placeholder={'John Smith'}
-                        onSearch={value => console.log(value)}
-                        allowClear={true}
-                    >
-
-                    </Search>
-                    <Menu.Item key="1" icon={<PieChartOutlined />}>
+                    {/*<Menu.Item key="1" icon={<PieChartOutlined />}>*/}
+                    {/*    <Search*/}
+                    {/*        placeholder={'John Smith'}*/}
+                    {/*        onSearch={value => console.log(value)}*/}
+                    {/*        allowClear={true}*/}
+                    {/*    />*/}
+                    {/*</Menu.Item>*/}
+                    <Menu.Item key="2" icon={<PieChartOutlined />}>
                         Dashboard
                     </Menu.Item>
-                    <Menu.Item key="2" icon={<DesktopOutlined />}>
+                    <Menu.Item key="3" icon={<DesktopOutlined />}>
                         Data Visualizations
                     </Menu.Item>
                 </Menu>

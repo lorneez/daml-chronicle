@@ -1,31 +1,36 @@
 import React from 'react';
 import styled from "styled-components";
+import ArticleContentComponent from "./ArticleContentComponent";
+import ArticleStatisticsComponent from "./ArticleStatisticsComponent";
 
 const Wrapper = styled("div")`s
   display: flex;
-  height: 100vh;
-  width: 100vw;
 `;
 
 const Column = styled("div")`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  width: 100%;
-  height: 100%;
+`;
+
+const Row = styled("div")`
+  display: flex;
+  flex-direction: row;
 `;
 
 function DetailsPageComponent() {
     return (
       <Wrapper>
           <Column>
+              <Row>
+                  <ArticleContentComponent></ArticleContentComponent>
+                  <ArticleStatisticsComponent></ArticleStatisticsComponent>
+              </Row>
               <a href={'/search'}>
                   Go to search page
               </a>
           </Column>
       </Wrapper>
-    )
+    );
 };
 
 export default DetailsPageComponent;
