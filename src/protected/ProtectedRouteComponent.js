@@ -6,7 +6,7 @@ import { getAuthentication, validateAuthentication, clearAuthentication } from '
 import LoadingComponent from "../components/LoadingComponent";
 import ModalComponent from './ModalComponent';
 import SideBarComponent from "../components/SideBarComponent";
-import {OAuth_URL} from "../components/onboardpage/LoginComponent";
+const OAuth_URL = require('../components/onboardpage/ColabOAuth2Routes').OAuth_URL;
 
 function ProtectedRouteComponent(props) {
   const auth = useContext(AuthContext);

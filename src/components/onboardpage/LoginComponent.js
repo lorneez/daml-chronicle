@@ -7,21 +7,9 @@ import { Link } from 'react-router-dom';
 
 import { AuthContext } from '../../contexts/AuthContext';
 import LoadingComponent from "../LoadingComponent";
-// import querystring from "querystring";
-// import chronicleLogo from '../../data/chronicle.png';
 
-const dukeAuth = "https://oauth.oit.duke.edu/oauth/authorize.php?";
-const clientId = "client_id=lorne-zhang";
-const clientSecret = "&client_secret=aexEetdyPlYlU7kc3QZmCmJf5pyIql1T%KJ!=j!Ik=B+hFF7oX";
-// const redirectUri = "&redirect_uri=http%3A%2F%2Flocalhost%3A3000/login/";
-const redirectUri = "&redirect_uri=https%3A%2F%2Floving-fermi-04148b.netlify.app/login/";
-const responseType = "&response_type=token";
-const state = "&state=2000";
-const scope = "&scope=basic";
+const OAuth_URL = require('./ColabOAuth2Routes').OAuth_URL;
 
-export const OAuth_URL = dukeAuth + clientId + clientSecret + redirectUri + responseType + state + scope;
-
-// Styled Components
 const Wrapper = styled("div")`s
   display: flex;
   height: 100vh;
