@@ -49,7 +49,12 @@ function SideBarComponent(props) {
                             </Link>
                             About
                         </Menu.Item>
-                        <Menu.Item key="3">Contact</Menu.Item>
+                        <Menu.Item key="3">
+                            <Link to=
+                                {"/contact"}>
+                            </Link>
+                            Contact
+                        </Menu.Item>
                     </Menu>
                 </Header>
                 <Content style={{ margin: '0 16px' }}>
