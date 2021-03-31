@@ -1,6 +1,48 @@
-import React from "react"
+import React, { useState } from "react"
+import axios from "axios";
 
 function AboutPageComponent() {
+
+    const options = {
+        headers: {
+            'Authorization': 'JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTY4MDMwMTksImlhdCI6MTYxNjc4MTQxOSwibmJmIjoxNjE2NzgxNDE5LCJpZGVudGl0eSI6MX0.YCjBkb93Y4koFoYJa0nZI88PuL2X9Pmsv_-HssJ6dxM',
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'DELETE, POST, GET, OPTIONS',
+            'Access-Control-Allow-Headers': 'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With'
+        }
+    };
+
+    axios.get("https://chronicle-daml.herokuapp.com/allcontentfifty/1", {}, options)
+        .then(response => {
+            console.log(JSON.stringify(response.data));
+        })
+        .catch(error => {
+            console.log(error);
+        });
+    // let config = {
+    //     method: 'get',
+    //     url: 'allcontentfifty/1',
+    //     headers: {
+    //         'Authorization': 'JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTY4MDMwMTksImlhdCI6MTYxNjc4MTQxOSwibmJmIjoxNjE2NzgxNDE5LCJpZGVudGl0eSI6MX0.YCjBkb93Y4koFoYJa0nZI88PuL2X9Pmsv_-HssJ6dxM',
+    //         'Access-Control-Allow-Origin': '*',
+    //         'Access-Control-Allow-Methods': 'DELETE, POST, GET, OPTIONS',
+    //         'Access-Control-Allow-Headers': 'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With'
+
+    //     }
+    // };
+
+
+    // axios(config)
+    //     .then(function (response) {
+    //         console.log(JSON.stringify(response.data));
+    //     })
+    //     .catch(function (error) {
+    //         console.log(error);
+    //     });
+
+
+
+
     return (
         <div>
             <h1 className="about-title" style={{ fontSize: 40 }}>About</h1>
@@ -14,6 +56,8 @@ function AboutPageComponent() {
             <p>
                 34
             </p>
+
+
         </div>
     )
 
