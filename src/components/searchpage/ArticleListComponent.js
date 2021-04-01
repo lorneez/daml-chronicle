@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Col, Pagination, Row } from "antd";
 import articles from "./SampleArticleData";
 import ArticleCardComponent from "./ArticleCardComponent";
 
@@ -8,8 +7,6 @@ function ArticleListComponent() {
 
     const [minValue, setMinValue] = useState(0);
     const [maxValue, setMaxValue] = useState(articlesPerPage);
-
-
     const [start, setStart] = useState(0);
     const [end, setEnd] = useState(Math.round(articles.length / articlesPerPage)-1);
     const [current, setCurrent] = useState(0);
@@ -22,10 +19,10 @@ function ArticleListComponent() {
             setMinValue((value - 1) * 2);
             setMaxValue((value - 1) * 2 + 2);
         }
-    };
+    }
 
     function renderPaginationNav() {
-        if(current == start) {
+        if(current === start) {
             return (
                 <ul className="pagination-list">
                     <li><a className="pagination-link is-current" aria-label="Page current"
@@ -39,7 +36,7 @@ function ArticleListComponent() {
                 </ul>
             )
         }
-        else if(current == end) {
+        else if(current === end) {
             return (
                 <ul className="pagination-list">
                     <li>
@@ -107,26 +104,6 @@ function ArticleListComponent() {
     function renderArticles() {
         return (
             <div className={"container"}>
-                {/*<Row*/}
-                {/*    style={{*/}
-                {/*        'justifyContent': 'center'*/}
-                {/*    }}*/}
-                {/*>*/}
-                {/*    {articles &&*/}
-                {/*        articles.length > 0 &&*/}
-                {/*        articles.slice(minValue, maxValue).map(article => {*/}
-                {/*            const { title, author, date, description } = article;*/}
-                {/*            return (*/}
-                {/*                <ArticleCardComponent*/}
-                {/*                    title={title}*/}
-                {/*                    author={author}*/}
-                {/*                    date={date}*/}
-                {/*                    description={description}*/}
-                {/*                    key={title}*/}
-                {/*                />*/}
-                {/*            );*/}
-                {/*        })}*/}
-                {/*</Row>*/}
                 <div className={"section"}>
                     {articles &&
                     articles.length > 0 &&
@@ -156,7 +133,6 @@ function ArticleListComponent() {
             </div>
         );
     };
-
     return (
         <div>
             {renderArticles()}
