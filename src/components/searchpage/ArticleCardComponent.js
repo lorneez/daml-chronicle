@@ -4,11 +4,11 @@ import { Card } from 'antd';
 function ArticleCardComponent(props) {
     const { title, author, description, date } = props;
     return (
-        <Card title={title} style={{ width: 300, margin: '2%' }}>
+        <div className={"box"}>
             <p>{author}</p>
             <p>{date}</p>
             <p>{description}</p>
-        </Card>
+        </div>
     );
 }
 

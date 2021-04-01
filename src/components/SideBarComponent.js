@@ -29,9 +29,9 @@ function SideBarComponent(props) {
                     <Menu.Item key="2" icon={<PieChartOutlined />}>
                         Dashboard
                     </Menu.Item>
-                    <Menu.Item key="3" icon={<DesktopOutlined />}>
-                        Data Visualizations
-                    </Menu.Item>
+                    {/*<Menu.Item key="3" icon={<DesktopOutlined />}>*/}
+                    {/*    Data Visualizations*/}
+                    {/*</Menu.Item>*/}
                 </Menu>
             </Sider>
             <Layout className="site-layout">
@@ -60,7 +60,7 @@ function SideBarComponent(props) {
                 <Content style={{ margin: '0 16px' }}>
                     <Breadcrumb style={{ margin: '16px 0' }}>
                         <Breadcrumb.Item>User</Breadcrumb.Item>
-                        <Breadcrumb.Item>Lorne</Breadcrumb.Item>
+                        <Breadcrumb.Item>Name</Breadcrumb.Item>
                     </Breadcrumb>
                     <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
                         <Content

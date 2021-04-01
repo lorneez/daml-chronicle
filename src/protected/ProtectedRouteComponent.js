@@ -56,20 +56,20 @@ function ProtectedRouteComponent(props) {
     if(loadingScreen) {
       console.log("Loading is: " + loadingScreen);
       return (
-          <LoadingComponent></LoadingComponent>
+          <LoadingComponent/>
       )
     }
     else {
       if (protectedComponent) {
         console.log("returning component");
         return (
-            <SideBarComponent component={props.component}></SideBarComponent>
+            <SideBarComponent component={props.component}/>
         );
       } else {
         console.log("returning modal");
         return (
             <div>
-              <SideBarComponent component={props.component}></SideBarComponent>
+              <SideBarComponent component={props.component}/>
               <ModalComponent
                   url={OAuth_URL}
                   title="Reauthenticate Login"

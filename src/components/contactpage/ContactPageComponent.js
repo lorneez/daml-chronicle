@@ -7,11 +7,10 @@ import { Card } from 'antd';
 const Wrapper = styled('div')`
 `
 
-const Row = styled('div')`
+const Col = styled('div')`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-around;
-  padding: 25px;
 `
 const Address = styled('div')`
   color: blue;
@@ -20,7 +19,6 @@ const Address = styled('div')`
 const ContactBoxComponents = ({contactType, address}) => {
     return (
         <Card title={contactType}
-              style={{ "width":"25%"}}
               headStyle={{"color":"blue"}}
         >
             {address}
@@ -32,14 +30,12 @@ const ContactBoxComponents = ({contactType, address}) => {
 function ContactPageComponent() {
     return (
         <Wrapper>
-            <Row>
+            <Col>
                 <ContactBoxComponents contactType="Email" address="chronicle@duke.edu"/>
                 <ContactBoxComponents contactType="Phone" address="XXX-XXX-XXXX"/>
-            </Row>
-            <Row>
                 <ContactBoxComponents contactType="Twitter" address="something"/>
                 <ContactBoxComponents contactType="Lead Dev" address="DAML"/>
-            </Row>
+            </Col>
         </Wrapper>
     );
 };
